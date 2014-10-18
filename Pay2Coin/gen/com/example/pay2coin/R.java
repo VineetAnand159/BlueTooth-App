@@ -1262,7 +1262,7 @@ containing a value of this type.
         public static final int exit=0x7f0a0016;
         public static final int hello_world=0x7f0a000e;
         public static final int logout=0x7f0a0014;
-        public static final int title_activity_welcome=0x7f0a0015;
+        public static final int title_activity_launcher=0x7f0a0015;
     }
     public static final class style {
         /** 
