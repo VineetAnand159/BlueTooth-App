@@ -23,14 +23,12 @@ import com.pay2coin.screens.adapters.MerchantAdapter;
 
 public class FragmentTabPayNow extends FragmentTab{
 
-	MerchantsController merchantsController;
+	MerchantsController merchantsController = new MerchantsController();
 	
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
             Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.fragment_main, container, false);
-        TextView tv = (TextView) v.findViewById(R.id.text);
-        tv.setText("Available Merchants");
         final ArrayList<Merchant> merchantList = (ArrayList<Merchant>) merchantsController.getMerchants();
         ListView lv = (ListView)v.findViewById(R.id.list_view_main);
         MerchantAdapter merchantAdapter = new MerchantAdapter(getActivity(),R.layout.row,merchantList);
@@ -44,8 +42,6 @@ public class FragmentTabPayNow extends FragmentTab{
                  toast.show();
             }
         });
-        Button b = (Button) v.findViewById(R.id.button1);
-        b.setOnClickListener(this);
         return v;
     }
 

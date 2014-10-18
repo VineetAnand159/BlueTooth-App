@@ -22,10 +22,6 @@ public class FragmentTab extends Fragment implements OnClickListener{
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
             Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.fragment_main, container, false);
-        TextView tv = (TextView) v.findViewById(R.id.text);
-        tv.setText(this.getTag() + " Content");
-        Button b = (Button) v.findViewById(R.id.button1);
-        b.setOnClickListener(this);
         return v;
     }
 

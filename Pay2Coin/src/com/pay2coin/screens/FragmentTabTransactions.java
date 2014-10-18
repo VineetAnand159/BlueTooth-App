@@ -20,14 +20,12 @@ import com.pay2coin.business.TransactionsController;
 import com.pay2coin.screens.adapters.TransactionAdapter;
 
 public class FragmentTabTransactions extends FragmentTab{
-	TransactionsController transactionsController;
+	TransactionsController transactionsController = new TransactionsController();
 	
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
             Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.fragment_main, container, false);
-        TextView tv = (TextView) v.findViewById(R.id.text);
-        tv.setText("Available Transactions");
         final ArrayList<Transaction> transactionsList = transactionsController.getTransactions();
         ListView lv = (ListView)v.findViewById(R.id.list_view_main);
         TransactionAdapter transactionAdapter = new TransactionAdapter(getActivity(),R.layout.row,transactionsList);
@@ -41,8 +39,6 @@ public class FragmentTabTransactions extends FragmentTab{
                  toast.show();
             }
         });
-        Button b = (Button) v.findViewById(R.id.button1);
-        b.setOnClickListener(this);
         return v;
     }
 
