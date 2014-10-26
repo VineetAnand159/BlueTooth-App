@@ -15,7 +15,9 @@ public class TransactionsController {
 		 Transaction t2 = new Transaction();
 		 
 		 Merchant m1 = new Merchant();
+		 m1.setMerchant("Dominos Andheri East");
 		 Merchant m2 = new Merchant();
+		 m2.setMerchant("Faasos Andheri East");
 		 
 		 t1.setMerchant(m1);
 		 t1.setItem("Pizza");

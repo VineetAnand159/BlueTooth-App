@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 import Domain.Merchant;
 import Domain.Transaction;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -27,6 +28,8 @@ public class FragmentTabTransactions extends FragmentTab{
             Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.fragment_main, container, false);
         final ArrayList<Transaction> transactionsList = transactionsController.getTransactions();
+        TextView tv = (TextView)v.findViewById(R.id.text_view_main);
+        tv.setText("Past transactions");
         ListView lv = (ListView)v.findViewById(R.id.list_view_main);
         TransactionAdapter transactionAdapter = new TransactionAdapter(getActivity(),R.layout.row,transactionsList);
         lv.setAdapter(transactionAdapter);
@@ -35,8 +38,14 @@ public class FragmentTabTransactions extends FragmentTab{
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
             	Transaction t = transactionsList.get(position);
-                 Toast toast = Toast.makeText(getActivity(), t.getMerchant().getMerchant(), 2);
+                 Toast toast = Toast.makeText(getActivity(), t.getItem()+"--"+t.getCost(), 2);
                  toast.show();
+                 Intent newActivity = new Intent(getActivity(),TransactionActivity.class); 
+                 newActivity.putExtra("merchant",t.getMerchant().getMerchant());
+                 newActivity.putExtra("item",t.getItem());
+                 newActivity.putExtra("cost",t.getCost());
+                 newActivity.putExtra("date",t.getDate());
+                 startActivity(newActivity);
             }
         });
         return v;

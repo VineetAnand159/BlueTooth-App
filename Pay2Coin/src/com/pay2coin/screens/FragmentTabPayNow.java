@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import Domain.Merchant;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -30,6 +31,8 @@ public class FragmentTabPayNow extends FragmentTab{
             Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.fragment_main, container, false);
         final ArrayList<Merchant> merchantList = (ArrayList<Merchant>) merchantsController.getMerchants();
+        TextView tv = (TextView)v.findViewById(R.id.text_view_main);
+        tv.setText("Merchants");
         ListView lv = (ListView)v.findViewById(R.id.list_view_main);
         MerchantAdapter merchantAdapter = new MerchantAdapter(getActivity(),R.layout.row,merchantList);
         lv.setAdapter(merchantAdapter);
@@ -40,6 +43,9 @@ public class FragmentTabPayNow extends FragmentTab{
             	Merchant m = merchantList.get(position);
                  Toast toast = Toast.makeText(getActivity(), m.getMerchant(), 2);
                  toast.show();
+                 Intent newActivity = new Intent(getActivity(),PaymentActivity.class); 
+                 newActivity.putExtra("merchant", m.getMerchant());
+                 startActivity(newActivity);
             }
         });
         return v;

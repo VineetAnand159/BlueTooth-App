@@ -22,6 +22,18 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+         android:name="com.pay2coin.screens.LauncherActivity"
+         android:label="@string/title_activity_launcher" >
+      	</activity>
+      	<activity
+         android:name="com.pay2coin.screens.PaymentActivity"
+         android:label="@string/title_activity_payment" >
+      	</activity>
+      	<activity
+         android:name="com.pay2coin.screens.TransactionActivity"
+         android:label="@string/title_activity_transactions" >
+      	</activity>
     </application>
 
 </manifest>

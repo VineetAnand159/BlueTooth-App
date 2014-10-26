@@ -39,7 +39,7 @@ public class TransactionAdapter extends ArrayAdapter<Transaction> {
         if (item!= null) {
             // My layout has only one TextView
                 // do whatever you want with your string and long
-            viewHolder.itemView.setText(String.format("%s", item.getMerchant().getMerchant()));
+            viewHolder.itemView.setText(String.format("%s", item.getItem()+"--"+item.getCost()));
         }
 
         return convertView;
